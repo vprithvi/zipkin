@@ -3,4 +3,6 @@
 DEFAULT_TYPE=dev
 SERVICE_TYPE=${1:-$DEFAULT_TYPE}
 
-bin/sbt 'project zipkin-collector-service' "run -f zipkin-collector-service/config/collector-${SERVICE_TYPE}.scala"
+./gradlew zipkin-collector-service:installDist
+./zipkin-collector-service/build/install/zipkin-collector-service/bin/zipkin-collector-service \
+    -f ./zipkin-collector-service/config/collector-${SERVICE_TYPE}.scala
