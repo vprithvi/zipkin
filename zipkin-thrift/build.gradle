@@ -9,3 +9,8 @@ buildscript {
 }
 
 apply plugin: 'idl'
+apply plugin: 'thrift'
+
+dependencies {
+    compile "org.apache.thrift:libthrift:${commonVersions.thrift}"
+}
